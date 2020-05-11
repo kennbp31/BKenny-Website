@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/styles.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+        <title>Brendan Kenny - About</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body onload="imgIntervalTimer()">
+        <p class="links">
+            <a href="index.html" class="btn btn-outline-dark" role="button" aria-pressed="true">Home</a>
+            <a href="resume.html" class="btn btn-outline-dark" role="button" aria-pressed="true">Resume</a>
+            <a href="story.html" class="btn btn-outline-dark" role="button" aria-pressed="true">About Me</a>
+            <a href="contact.html" class="btn btn-outline-dark" role="button" aria-pressed="true">Contact Me</a>
+        </p>
+
+        <div style="width: 100%">
+            <div class="dropHeader" style="width: 20%;">
+                <h1>About Me</h1>
+                <div  id="photos">
+            <img class="rounded" src="Photos/pic1.jpg" alt="Brendan Photos" style="width: 100%; height: 100%; padding-left:5%;">
+        </div>
+        </div>
+            <div class=parent>
+                <div class=botLeft>
+                    <a href="https://www.linkedin.com/in/brendan-kenny-46106013b/" target="_blank">
+                        <img src="Images/linkedin-icon_24x24.png" alt="twitter" >
+                    </a>
+                    <p></p>
+                    <a href="https://github.com/kennbp31" target="_blank">
+                        <img src="Images/github.png" alt="github" height="20">
+                    </a>
+                    <p></p>
+                    <a target="_top" href="mailto:kennbp31@gmail.com" target="_blank">
+                        <img src="Images/gmail.png" alt="Email"  width="100%" height="100%">
+                    </a>
+
+                </div>
+            </div>
+
+            <div style="margin-left: 200px; height:100%">
+                <p class="shadow-lg p-3 mb-5 bg-white rounded" class ="container" id="about" >
+                 &emsp; Hello, and thank you for taking the time to review my portfolio! Below is a <i>'quick'</i> overview of my professional journey up until now!
+
+                 <br><br>&emsp; Originally from <b>Syracuse, NY,</b> I worked for a software company providing financial and management software solutions to self-storage companies
+                 across the country. In that role I acted as a Software Support Analyst and Large Account Manager gaining a firm understanding of software development workflows, team dynamics, and how to translate client’s business needs
+                 into deliverable software. A few of my daily responsibilities included troubleshooting client issues, providing data repairs using SQL,
+                 coding custom installers for large accounts specific business rules, training users of the software, and migrating clients from existing software to our own.
+
+                 <br><br>&emsp; I moved to the <b>Research Triangle</b> Area of North Carolina in 2015 to work at Farragut Systems, a leading producer of local government software solutions.
+                 Although the title was the same, my expertise and abilities grew exponentially with the new challenges.
+                 In addition to my existing responsibilities at Syrasoft, I was now coding long and complex stored procedures, performing routing maintenance and troubleshooting on large SQL Server Databases,
+                 troubleshooting issues for clients using our cloud-based SaaS, leading large conferences, managing documentation and writing complex guides for lengthy business processes, and much more.
+
+                 <br><br>&emsp; Although happy with my current situation, in 2017 I sought a new challenge. I desired to give back to the community and work as a High School Teacher, teaching students about one of my passions, History.
+                 Teaching has been the single most challenging thing I have ever done! It is one thing to lead a lecture at a professional conference evert, but something totally different to
+                 convince teenagers the value of education, and excitement that can be learned from History. However, I am not one to shy away from a challenge.
+                 Countless hours spent late at night planning lessons, grading, and strategizing how to manage the classroom eventually paid off.
+                 My students achieved fantastic results on state assessments. 2 years in a row, I was awarded with the "going green" award, was recognized as beginner teacher of the month twice, and
+                 now act as the <b>Team Lead</b> of the American History department at my school.
+
+                 <br><br>&emsp; Now, three years after beginning my career as a teacher, I am looking to transition back to the software industry, in a new role.
+                 Me and my wife brought our first child into the world on 4/16/2020. With that change I have decided to focus my life on a passion that allows me
+                 to spend more quality time with my family. Although teaching is a fantastic profession, it requires a huge amount of mental energy to excel at.
+                 I know that I could be a decent teacher, and still have the energy at the end of the day for my family, but I am not one that is ok
+                 doing something "decent". I strive for excellence in my life.
+
+                 <br><br>&emsp; I have spent the better part of a year teaching myself to program. I have used languages ranging from <b>C, C#, Visual Basic, JavaScript, Python, and HTML.</b>
+                 So, although I am seeking a return to the software industry, it is in the <b>capacity of a developer rather than a software support technician.</b>
+                 I possess the skills to be a great educator, empathetic professional support, troubleshooting that works well under pressure, and now an indepth understanding of
+                 development languages and practices.
+
+                 <br><br>&emsp; I hope to work with you all one day in the future, and if this website and my story appeal to you, let me know!
+                 I love learning and sharing life experiences with new people!
+                </p>
+            </div>
+        </div>
+
+    </body>
+
+     <script> //script used to post photos
+            //sloppy, hardcoding number of images in dir
+            var numOfImages = 14;
+
+            //create an empyt array to store image names in
+            var nextImage = new Array(numOfImages);
+
+            //iterate through array and add image names
+            for (let i = 0; i < numOfImages; i++){
+                nextImage[i] = ("pic"+ (i + 1) +".jpg");
+            }
+
+            //variable used to track which image we are on.
+            var i = 1;
+
+            //Function to transition to next image
+            function displayNextImage(){
+                    //variable that stores image that is about to be displayed
+                    var x = nextImage[i];
+
+                    //inject HTML with newest image
+                    document.querySelector('#photos').innerHTML = '<img class="rounded" src="Photos/' + x + '" alt="Brendan Photos" style="width: 100%; height: 100%; padding-left:5%;">'
+
+                    // advance counter to show next image
+                    if (i < numOfImages - 1){
+                        i++;
+                    }
+                    else{
+                        i = 0;
+                    }
+                }
+
+            //Interval timer for the transition
+            function imgIntervalTimer(){
+                    setInterval(displayNextImage, 6000);
+                }
+
+        </script>
+</html>

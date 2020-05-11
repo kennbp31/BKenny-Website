@@ -1,0 +1,202 @@
+h1
+{
+   font-family: 'Open Sans', sans-serif;
+   font-size:60px;
+   font-size:5vw;
+}
+
+p1
+{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size:20px;
+
+}
+
+p2{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size:17px;
+}
+    html { overflow-y: auto; overflow-x:auto;}
+body
+{
+    color: black;
+    text-align: center;
+    background-image: url('Images/mtn.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-size:100% 100vh;
+
+}
+
+.links
+{
+    text-align: right;
+    justify-content: space-between;
+    padding:0px 0px;
+    position:absolute;
+    right:5%;
+
+
+}
+
+hr
+{
+    border-top: 1px solid white;
+}
+
+img
+{
+    image-orientation: from-image;
+}
+
+.centered
+{
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+
+.centeredcontact{
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    bottom:0;
+    right:20%;
+    overflow:auto;
+    clear:both;
+}
+
+.centeredAbout{
+    height:100%;
+    position:fixed;
+    top: 10%;
+    left: 25%;
+    right: 25%;
+    clear:both;
+}
+.botRight
+{
+    position:absolute;
+    bottom:0;
+    right:0;
+    left:55%;
+    color: white;
+    font-style:italic;
+    font-size:12px
+}
+
+.parent{
+    position: absolute;
+    height: 50px;
+    width: 25px;
+    bottom:5%;
+}
+.botLeft{
+    position:absolute;
+    bottom:0;
+    left:0;
+}
+
+.centerUp{
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+
+#about{
+    text-align: left;
+    position: absolute;
+    top: 10%;
+    right: 05%;
+    left: 25%;
+    bottom:10%;
+    background-color:white;
+    overflow-y:auto;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.dropHeader{
+    position: absolute;
+    top: 8%;
+}
+
+#res{
+   text-align: left;
+    position: absolute;
+    top: 10%;
+    right: 05%;
+    left: 30%;
+    bottom:10%;
+    background-color:white;
+    overflow-y:hide;
+}
+form {
+  position: absolute;
+  width: 60%;
+  top:0%;
+  margin: auto;
+  margin-top: 30px;
+  clear:both;
+
+}
+form input,
+form textarea {
+  font: inherit;
+  padding: 5px 5px;
+  width: 100%;
+  margin-top: 3px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+form button {
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 8px 35px;
+  background: #888;
+  color: white;
+}
+form label {
+  margin-bottom: 2px;
+  display: block;
+}
+form:after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 100%;
+  right: 3px;
+
+  text-shadow: 1px 1px white;
+  font-size: 11px;
+  padding: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: -100px;
+  transition: all .3s;
+}
+form.emailjs-success:after,
+form.emailjs-sending:after,
+form.emailjs-error:after {
+  margin-top: 0;
+  transition: all .3s;
+}
+form.emailjs-sending:after {
+  content: 'Sending email...';
+  background: #eee;
+}
+form.emailjs-success:after {
+  content: 'Email sent!';
+  background: #1B5E20;
+  color: white;
+  text-shadow: -1px -1px black;
+}
+form.emailjs-error:after {
+  content: 'Error sending email';
+  background: #B71C1C;
+  color: white;
+  text-shadow: -1px -1px black;
+}
