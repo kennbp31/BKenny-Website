@@ -66,7 +66,7 @@ img
 }
 
 .rightCenter{
-    position:fixed;
+    position:absolute;
     left: 30%;
     right: 5%;
     text-align: justify;
@@ -115,7 +115,7 @@ img
 
 #photos{
     position:absolute;
-    top:20%;
+    top:0%;
     left:1%;
     width:25vw;
 }
