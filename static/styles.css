@@ -5,7 +5,7 @@
 h1
 {
    font-family: 'Open Sans', sans-serif;
-   font-size:calc(15px + 5vw);
+   font-size:calc(40px + 3vw);
 
 }
 
@@ -13,14 +13,14 @@ p1
 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    font-size:calc(10px + 2vw);
+    font-size:calc(20px + 1.5vw);
 
 }
 
 p2{
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    font-size:calc(10px + .5vw);;
+    font-size:calc(15px + .5vw);;
 }
 
 .blackBackground{
@@ -47,23 +47,40 @@ img
 {
     image-orientation: from-image;
 }
-
 .centered{
     position:absolute;
     left: 40%;
-    transform: translate(-28%, 40%);
+    transform: translate(-28%, 10%);
+}
+
+@media screen and (max-width: 600px) {
+    .centered {
+        position: absolute;
+        text-align: center;
+        transform: translate(-30%, 0%);
+    }
 }
 
 .standardCenter{
     position:absolute;
-    left: 15%;
-    right: 15%;
+    left: 10%;
+    right: 10%;
 }
 
 .rightCenter{
     position:absolute;
     left: 30%;
     right: 5%;
+    text-align: justify;
+}
+
+@media screen and (max-width: 600px) {
+    .rightCenter {
+        position: absolute;
+        left: 5%;
+        right: 5%
+        text-align: justify;
+    }
 }
 
 .botRight
@@ -71,20 +88,28 @@ img
     position:absolute;
     bottom:2%;
     left: 50%;
-    right: 1%;
+    right: 2%;
     color: white;
     font-style:italic;
     font-size:calc(10px + .5vw);
 
 }
 
-.parent{
-    position: relative;
-    height: 90vh;
-    width: 100%;
-    bottom:15%;
+@media screen and (max-width: 600px) {
+    .botRight
+{
+    position:absolute;
+    bottom:0%;
+    left: 10%;
+    right: 0%;
+    color: white;
+    font-style:italic;
+    font-size:calc(13px + .5vw);
 
 }
+
+}
+
 .botLeft{
     width: 10px;
     position:fixed;
@@ -94,16 +119,34 @@ img
 
 #photos{
     position:absolute;
-    top:13%;
+    top:20%;
     left:1%;
     width:25vw;
 }
+
+
+@media screen and (max-width: 600px) {
+    #photos{
+    visibility: hidden;
+}
+
+}
+
+
+.parent{
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    bottom:15%;
+
+}
+
 form {
-  width: 60%;
+  position:relative;
+  width: 65%;
   top:0%;
   margin: auto;
   margin-top: 30px;
-  clear:both;
 
 }
 form input,

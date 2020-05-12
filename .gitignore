@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 .idea/
 __pycache__/
 /python-getting-started
 /venv
+=======
+
+.idea/
+__pycache__/
+venv/
+>>>>>>> 273018de2d96544ddf1a61895fefdca429c2f779
