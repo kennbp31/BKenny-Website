@@ -73,6 +73,15 @@ img
     right: 5%;
 }
 
+@media screen and (max-width: 600px) {
+    .rightCenter {
+        position: absolute;
+        text-align: center;
+        left: 5%;
+        right: 5%
+    }
+}
+
 .botRight
 {
     position:absolute;
@@ -113,6 +122,15 @@ img
     left:1%;
     width:25vw;
 }
+
+
+@media screen and (max-width: 600px) {
+    #photos{
+    visibility: hidden;
+}
+
+}
+
 
 .parent{
     position: relative;
