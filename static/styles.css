@@ -13,7 +13,7 @@ p1
 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    font-size:calc(20px + 2vw);
+    font-size:calc(20px + 1.5vw);
 
 }
 
@@ -71,14 +71,15 @@ img
     position:absolute;
     left: 30%;
     right: 5%;
+    text-align: justify;
 }
 
 @media screen and (max-width: 600px) {
     .rightCenter {
         position: absolute;
-        text-align: center;
         left: 5%;
         right: 5%
+        text-align: justify;
     }
 }
 
