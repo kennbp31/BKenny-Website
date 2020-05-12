@@ -99,11 +99,12 @@ img
     width:25vw;
 }
 form {
+  position:relative;
   width: 60%;
   top:0%;
   margin: auto;
   margin-top: 30px;
-  clear:both;
+  z-index: 1;
 
 }
 form input,

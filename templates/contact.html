@@ -7,12 +7,12 @@
 {% block main %}
      <div style="position: relative;">
          <div class="standardCenter">
-             <h1 id="rtitle">Contact Me</h1>
+             <h1>Contact Me</h1>
              <br>
              <p1>If you have any questions, comments, or would like to reach out for any other reason you can email me or use the form on this page.</p1>
 
             <div>
-            <form class="rounded" id="myform" onsubmit="emailjs.sendForm('default_service', 'portfolio', this); return false;" method="post">
+            <form onsubmit="emailjs.sendForm('default_service', 'portfolio', this); return false;" method="post">
                 <label>Your Name</label>
                 <input  type="text" name="to_name" />
                 <label>Email Address</label>
