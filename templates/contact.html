@@ -5,26 +5,28 @@
 {% endblock %}
 
 {% block main %}
-    <div class="centeredAbout">
-        <h1 id="rtitle">Contact Me</h1>
-            <br>
-            <p1>If you have any questions, comments, or would like to reach out for any other reason you can email me or use the form on this page.</p1>
-    </div>
-    <div class="centeredcontact">
-        <form class="rounded" id="myform" onsubmit="emailjs.sendForm('default_service', 'portfolio', this); return false;" method="post">
-            <label>Your Name</label>
-            <input  type="text" name="to_name" />
-            <label>Email Address</label>
-            <input  type="text" name="from_name" />
-            <label>Questions/Comments</label>
-            <input  type="text" name="message_html" height="200"/>
-            <br><br>
-            <button class="rounded" >
-            Send
-            </button>
-        </form>
-    </div>
+     <div style="position: relative;">
+         <div class="standardCenter">
+             <h1 id="rtitle">Contact Me</h1>
+             <br>
+             <p1>If you have any questions, comments, or would like to reach out for any other reason you can email me or use the form on this page.</p1>
 
+            <div>
+            <form class="rounded" id="myform" onsubmit="emailjs.sendForm('default_service', 'portfolio', this); return false;" method="post">
+                <label>Your Name</label>
+                <input  type="text" name="to_name" />
+                <label>Email Address</label>
+                <input  type="text" name="from_name" />
+                <label>Questions/Comments</label>
+                <input  type="text" name="message_html" height="200"/>
+                <br><br>
+                <button class="rounded" >
+                Send
+                </button>
+            </form>
+            </div>
+         </div>
+     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
     <script type="text/javascript">
        (function(){

@@ -5,49 +5,42 @@
 h1
 {
    font-family: 'Open Sans', sans-serif;
-   font-size:60px;
-   font-size:5vw;
+   font-size:calc(15px + 5vw);
+
 }
 
 p1
 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    font-size:20px;
+    font-size:calc(10px + 2vw);
 
 }
 
 p2{
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    font-size:17px;
+    font-size:calc(10px + .5vw);;
 }
-    html { overflow-y: auto; overflow-x:auto;}
+
+.blackBackground{
+    background-color: black;
+    padding:calc(10px + 1.5vw);
+    box-shadow: 10px 10px 5px black;
+}
+
 body
 {
-    color: black;
-    text-align: center;;
-    /*background-image: url('Images/mtn.jpg');*/
-    background-repeat:no-repeat;
-    background-size:cover;
-    background-size:100% 100vh;
+    color: white;
+    text-align: center;
+    background-image: url('Images/wood-black.jpg');
+    background-position: center center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
 
-}
-
-.links
-{
-    text-align: right;
-    justify-content: space-between;
-    padding:0px 0px;
-    position:absolute;
-    right:5%;
-
-
-}
-
-hr
-{
-    border-top: 1px solid white;
 }
 
 img
@@ -55,92 +48,57 @@ img
     image-orientation: from-image;
 }
 
-.centered
-{
-    position:fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -70%);
+.centered{
+    position:absolute;
+    left: 40%;
+    transform: translate(-28%, 40%);
 }
 
-.centeredcontact{
-    position: absolute;
-    top: 35%;
-    left: 35%;
-    bottom:0;
-    right:20%;
-    overflow:auto;
-    clear:both;
+.standardCenter{
+    position:absolute;
+    left: 15%;
+    right: 15%;
 }
 
-.centeredAbout{
-    height:100%;
-    position:fixed;
-    top: 10%;
-    left: 25%;
-    right: 25%;
-    clear:both;
+.rightCenter{
+    position:absolute;
+    left: 30%;
+    right: 5%;
 }
+
 .botRight
 {
     position:absolute;
-    bottom:0;
-    right:0;
-    left:55%;
+    bottom:2%;
+    left: 50%;
+    right: 1%;
     color: white;
     font-style:italic;
-    font-size:12px
+    font-size:calc(10px + .5vw);
+
 }
 
 .parent{
-    position: absolute;
-    height: 50px;
-    width: 25px;
-    bottom:5%;
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    bottom:15%;
+
 }
 .botLeft{
-    position:absolute;
+    width: 10px;
+    position:fixed;
     bottom:0;
     left:0;
 }
 
-.centerUp{
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -70%);
-}
-
-#about{
-    text-align: left;
-    position: absolute;
-    top: 10%;
-    right: 05%;
-    left: 25%;
-    bottom:10%;
-    background-color:white;
-    overflow-y:auto;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-}
-
-.dropHeader{
-    position: absolute;
-    top: 8%;
-}
-
-#res{
-   text-align: left;
-    position: absolute;
-    top: 10%;
-    right: 05%;
-    left: 30%;
-    bottom:10%;
-    background-color:white;
-    overflow-y:hide;
+#photos{
+    position:absolute;
+    top:13%;
+    left:1%;
+    width:25vw;
 }
 form {
-  position: absolute;
   width: 60%;
   top:0%;
   margin: auto;
