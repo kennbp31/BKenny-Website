@@ -1,68 +1,34 @@
-<!DOCTYPE html>
+{% extends "layout.html" %}
 
-<html lang="en">
-    <head>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../static/styles.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
-        <title>Brendan Kenny - Contact</title>
+{% block title %}
+    Resume
+{% endblock %}
 
-    </head>
-    <body>
-        <div>
-        <p class="links">
-            <a href="index.html" class="btn btn-outline-dark" role="button" aria-pressed="true">Home</a>
-            <a href="resume.html" class="btn btn-outline-dark" role="button" aria-pressed="true">Resume</a>
-            <a href="story.html" class="btn btn-outline-dark" role="button" aria-pressed="true">About Me</a>
-            <a href="contact.html" class="btn btn-outline-dark" role="button" aria-pressed="true">Contact Me</a>
-        </div>
-
-
-
+{% block main %}
     <div class="centeredAbout">
-    <h1 id="rtitle">Contact Me</h1>
-                <br>
-                <p1>If you have any questions, comments, or would like to reach out for any other reason you can email me or use the form on this page.</p1>
+        <h1 id="rtitle">Contact Me</h1>
+            <br>
+            <p1>If you have any questions, comments, or would like to reach out for any other reason you can email me or use the form on this page.</p1>
     </div>
-<div class="centeredcontact">
-<form class="rounded" id="myform" onsubmit="emailjs.sendForm('default_service', 'portfolio', this); return false;" method="post">
-<label>Your Name</label>
-<input  type="text" name="to_name" />
-<label>Email Address</label>
-<input  type="text" name="from_name" />
-<label>Questions/Comments</label>
-<input  type="text" name="message_html" height="200"/>
-<br><br>
-<button class="rounded" >
-Send
-</button>
-</form>
-</div>
+    <div class="centeredcontact">
+        <form class="rounded" id="myform" onsubmit="emailjs.sendForm('default_service', 'portfolio', this); return false;" method="post">
+            <label>Your Name</label>
+            <input  type="text" name="to_name" />
+            <label>Email Address</label>
+            <input  type="text" name="from_name" />
+            <label>Questions/Comments</label>
+            <input  type="text" name="message_html" height="200"/>
+            <br><br>
+            <button class="rounded" >
+            Send
+            </button>
+        </form>
+    </div>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init("user_H3bsCSIdswRfK543skecH");
-   })();
-</script>
-
-
-        <div class=parent>
-                <div class=botLeft>
-                    <a href="https://www.linkedin.com/in/brendan-kenny-46106013b/" target="_blank">
-                        <img src="Images/linkedin-icon_24x24.png" alt="twitter" >
-                    </a>
-                    <p></p>
-                    <a href="https://github.com/kennbp31" target="_blank">
-                        <img src="Images/github.png" alt="github" height="20">
-                    </a>
-                    <p></p>
-                    <a target="_top" href="mailto:kennbp31@gmail.com" target="_blank">
-                        <img src="Images/gmail.png" alt="Email"  width="100%" height="100%">
-                    </a>
-                </div>
-            </div>
-    </body>
-
-
-</html>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("user_H3bsCSIdswRfK543skecH");
+       })();
+    </script>
+{% endblock %}

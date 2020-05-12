@@ -1,3 +1,7 @@
+.navList{
+    font-size:20px; !important
+}
+
 h1
 {
    font-family: 'Open Sans', sans-serif;
@@ -22,8 +26,8 @@ p2{
 body
 {
     color: black;
-    text-align: center;
-    background-image: url('Images/mtn.jpg');
+    text-align: center;;
+    /*background-image: url('Images/mtn.jpg');*/
     background-repeat:no-repeat;
     background-size:cover;
     background-size:100% 100vh;

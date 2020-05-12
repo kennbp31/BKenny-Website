@@ -1,20 +1,10 @@
-<!DOCTYPE html>
+{% extends "layout.html" %}
 
-<html lang="en">
-    <head>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../static/styles.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
-        <title>Brendan Kenny - Resume</title>
+{% block title %}
+    Resume
+{% endblock %}
 
-    </head>
-    <body .img-fluid>
-        <p class="links">
-            <a href="index.html" class="btn btn-outline-dark" role="button" aria-pressed="true">Home</a>
-            <a href="resume.html" class="btn btn-outline-dark" role="button" aria-pressed="true">Resume</a>
-            <a href="story.html" class="btn btn-outline-dark" role="button" aria-pressed="true">About Me</a>
-            <a href="contact.html" class="btn btn-outline-dark" role="button" aria-pressed="true">Contact Me</a>
-        </p>
+{% block main %}
         <div style="width: 100% overflow:hidden">
             <div class="dropHeader"style="width: 25%; float: left;">
                 <h1>Resume</h1>
@@ -27,28 +17,9 @@
 
                 </p2></ul>
                 </div>
-            <div class=parent>
-                <div class=botLeft>
-                   <a href="https://www.linkedin.com/in/brendan-kenny-46106013b/" target="_blank">
-                        <img src="Images/linkedin-icon_24x24.png" alt="twitter" >
-                    </a>
-                    <p></p>
-                    <a href="https://github.com/kennbp31" target="_blank">
-                        <img src="Images/github.png" alt="github" height="20">
-                    </a>
-                    <p></p>
-                    <a target="_top" href="mailto:kennbp31@gmail.com" target="_blank">
-                        <img src="Images/gmail.png" alt="Email"  width="100%" height="100%">
-                    </a>
-                </div>
-            </div>
-
             <div id=res>
-            <iframe class="resume" src="Brendan Kenny Professional Resume.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%"> =</iframe>
+            <iframe class="resume" src="/static/Brendan Kenny Professional Resume.pdf#toolbar=0&navpanes=0&scrollbar=0" width="100%" height="100%"> =</iframe>
             </div>
         </div>
 
-
-
-    </body>
-</html>
+{% endblock %}
