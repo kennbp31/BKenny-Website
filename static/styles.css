@@ -5,7 +5,7 @@
 h1
 {
    font-family: 'Open Sans', sans-serif;
-   font-size:calc(15px + 5vw);
+   font-size:calc(40px + 3vw);
 
 }
 
@@ -13,14 +13,14 @@ p1
 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    font-size:calc(10px + 2vw);
+    font-size:calc(20px + 2vw);
 
 }
 
 p2{
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    font-size:calc(10px + .5vw);;
+    font-size:calc(15px + .5vw);;
 }
 
 .blackBackground{
@@ -47,11 +47,18 @@ img
 {
     image-orientation: from-image;
 }
-
 .centered{
     position:absolute;
     left: 40%;
-    transform: translate(-28%, 40%);
+    transform: translate(-28%, 20%);
+}
+
+@media screen and (max-width: 600px) {
+    .centered {
+        position: absolute;
+        text-align: center;
+        transform: translate(-30%, 0%);
+    }
 }
 
 .standardCenter{
@@ -71,10 +78,25 @@ img
     position:absolute;
     bottom:2%;
     left: 50%;
-    right: 1%;
+    right: 2%;
     color: white;
     font-style:italic;
     font-size:calc(10px + .5vw);
+
+}
+
+@media screen and (max-width: 600px) {
+    .botRight
+{
+    position:absolute;
+    bottom:0%;
+    left: 10%;
+    right: 0%;
+    color: white;
+    font-style:italic;
+    font-size:calc(13px + .5vw);
+
+}
 
 }
 
