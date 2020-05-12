@@ -50,7 +50,7 @@ img
 .centered{
     position:absolute;
     left: 40%;
-    transform: translate(-28%, 20%);
+    transform: translate(-28%, 10%);
 }
 
 @media screen and (max-width: 600px) {
@@ -63,8 +63,8 @@ img
 
 .standardCenter{
     position:absolute;
-    left: 15%;
-    right: 15%;
+    left: 10%;
+    right: 10%;
 }
 
 .rightCenter{
@@ -100,13 +100,6 @@ img
 
 }
 
-.parent{
-    position: relative;
-    height: 90vh;
-    width: 100%;
-    bottom:15%;
-
-}
 .botLeft{
     width: 10px;
     position:fixed;
@@ -116,17 +109,25 @@ img
 
 #photos{
     position:absolute;
-    top:13%;
+    top:20%;
     left:1%;
     width:25vw;
 }
+
+.parent{
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    bottom:15%;
+
+}
+
 form {
   position:relative;
-  width: 60%;
+  width: 65%;
   top:0%;
   margin: auto;
   margin-top: 30px;
-  z-index: 1;
 
 }
 form input,
