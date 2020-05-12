@@ -8,4 +8,5 @@ __pycache__/
 .idea/
 __pycache__/
 venv/
+_config.yml
 >>>>>>> 273018de2d96544ddf1a61895fefdca429c2f779
