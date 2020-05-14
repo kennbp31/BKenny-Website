@@ -34,7 +34,6 @@ def contact():
                    + " , Message: " + request.form.get("message_html"))
         msg.attach(MIMEText(message))
 
-        print(msg.as_string())
         mailserver = smtplib.SMTP(os.environ["smtp"], os.environ["port"])
 
         mailserver.login(os.environ["username"], os.environ["pass"])
