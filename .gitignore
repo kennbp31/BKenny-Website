@@ -3,10 +3,12 @@
 __pycache__/
 /python-getting-started
 /venv
+.env
 =======
 
 .idea/
 __pycache__/
 venv/
 _config.yml
+.env
 >>>>>>> 273018de2d96544ddf1a61895fefdca429c2f779
