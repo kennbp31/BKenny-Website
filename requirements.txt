@@ -1,5 +1,3 @@
 Flask~=1.1.2
 Jinja2
 gunicorn
-python-dotenv~=0.13.0
-boto
