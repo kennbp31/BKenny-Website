@@ -3,4 +3,3 @@ Jinja2
 gunicorn
 python-dotenv~=0.13.0
 boto
-boto.s3.connection
