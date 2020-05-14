@@ -1,11 +1,11 @@
 import os
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
-from boto.s3.connection import S3Connection
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 app = Flask(__name__)
+app.secret_key = 'KHbkjbjKBu7g87g*&gbuyb*&g97iUB'
 
 
 @app.route('/')
@@ -40,6 +40,7 @@ def contact():
 
         mailserver.sendmail(os.environ["from"], os.environ["to"], msg.as_string())
         mailserver.quit()
+        flash("Email Sent")
         return render_template("contact.html")
 
     return render_template("contact.html")
