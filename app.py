@@ -7,6 +7,7 @@ from email.mime.text import MIMEText
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -26,20 +27,21 @@ def story():
 def contact():
     if request.method == "POST":
         msg = MIMEMultipart()
-        msg['From'] = 'kennbp31@gmail.com'
-        msg['To'] = 'kennbp31@gmail.com'
-        msg['Subject'] = 'simple email in python'
-        message = 'here is the email'
+        msg['From'] = os.environ["from"]
+        msg['To'] = os.environ["to"]
+        msg['Subject'] = 'Portfolio Inquiry'
+        message = ("Name: " + request.form.get("from_name") + " , Email: " + request.form.get("from_email")
+                   + " , Message: " + request.form.get("message_html"))
         msg.attach(MIMEText(message))
 
         print(msg.as_string())
-        mailserver = smtplib.SMTP('smtp.sendgrid.net', 587)
-        # identify ourselves to smtp gmail client
+        mailserver = smtplib.SMTP(os.environ["smtp"], os.environ["port"])
 
         mailserver.login(os.environ["username"], os.environ["pass"])
 
-        mailserver.sendmail("kennbp31@gmail.com", "kennbp31@gmail.com", msg.as_string())
+        mailserver.sendmail(os.environ["from"], os.environ["to"], msg.as_string())
         mailserver.quit()
+        return render_template("contact.html")
 
     return render_template("contact.html")
 
