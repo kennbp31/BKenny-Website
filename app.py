@@ -2,10 +2,10 @@ import os
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
 from boto.s3.connection import S3Connection
 import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 app = Flask(__name__)
-
-
 
 @app.route('/')
 def index():
@@ -24,28 +24,24 @@ def story():
 
 @app.route('/contact', methods=["GET", "POST"])
 def contact():
-    if request.method == "POST":
+   if request.method == "POST":
+       msg = MIMEMultipart()
+       msg['From'] = 'kennbp31@gmail.com'
+       msg['To'] = 'kennbp31@gmail.com'
+       msg['Subject'] = 'simple email in python'
+       message = 'here is the email'
+       msg.attach(MIMEText(message))
 
-        # Handle using local variables, will be removed once local testing is complete.
-        if not os.environ["username"]:
-            server = smtplib.SMTP_SSL("smtp.gmail.com", S3Connection(os.environ["port"]))
-            server.login(S3Connection(os.environ["username"]), S3Connection(os.environ["pass"]))
-            server.sendmail(
-                request.form.get("from_email"),
-                S3Connection(os.environ["to"]),
-                "Name: " + request.form.get("from_name") + ", Message: " + request.form.get(
-                    "message_html"))
-            server.quit()
+       print(msg.as_string())
+       mailserver = smtplib.SMTP('smtp.sendgrid.net', 587)
+       # identify ourselves to smtp gmail client
 
-        # Setup for Heroku App Vaiables.
-        else:
-            server = smtplib.SMTP_SSL("smtp.gmail.com", os.environ["port"])
-            server.login(os.environ["username"], os.environ["pass"])
-            server.sendmail(
-                request.form.get("from_email"),
-                os.environ["to"],
-                "Name: " + request.form.get("from_name") + ", Message: " + request.form.get("message_html"))
-            server.quit()
+       mailserver.login('apikey', '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')
+
+       mailserver.sendmail("kennbp31@gmail.com", "kennbp31@gmail.com", msg.as_string())
+
+       mailserver.quit()
+
 
     return render_template("contact.html")
 
