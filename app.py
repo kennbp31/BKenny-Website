@@ -24,24 +24,22 @@ def story():
 
 @app.route('/contact', methods=["GET", "POST"])
 def contact():
-   if request.method == "POST":
-       msg = MIMEMultipart()
-       msg['From'] = 'kennbp31@gmail.com'
-       msg['To'] = 'kennbp31@gmail.com'
-       msg['Subject'] = 'simple email in python'
-       message = 'here is the email'
-       msg.attach(MIMEText(message))
+    if request.method == "POST":
+        msg = MIMEMultipart()
+        msg['From'] = 'kennbp31@gmail.com'
+        msg['To'] = 'kennbp31@gmail.com'
+        msg['Subject'] = 'simple email in python'
+        message = 'here is the email'
+        msg.attach(MIMEText(message))
 
-       print(msg.as_string())
-       mailserver = smtplib.SMTP('smtp.sendgrid.net', 587)
-       # identify ourselves to smtp gmail client
+        print(msg.as_string())
+        mailserver = smtplib.SMTP('smtp.sendgrid.net', 587)
+        # identify ourselves to smtp gmail client
 
-       mailserver.login('apikey', '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')
+        mailserver.login(os.environ["username"], os.environ["pass"])
 
-       mailserver.sendmail("kennbp31@gmail.com", "kennbp31@gmail.com", msg.as_string())
-
-       mailserver.quit()
-
+        mailserver.sendmail("kennbp31@gmail.com", "kennbp31@gmail.com", msg.as_string())
+        mailserver.quit()
 
     return render_template("contact.html")
 
