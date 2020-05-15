@@ -1,6 +1,5 @@
 import os
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
-
 from email_class import SendEmail
 
 app = Flask(__name__)
