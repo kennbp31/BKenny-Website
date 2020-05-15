@@ -1,11 +1,19 @@
 import os
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
+<<<<<<< Updated upstream
 from boto.s3.connection import S3Connection
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 app = Flask(__name__)
+=======
+from email_class import SendEmail
+
+app = Flask(__name__)
+
+app.secret_key = os.environ["secret_key"]
+>>>>>>> Stashed changes
 
 
 @app.route('/')
@@ -26,6 +34,7 @@ def story():
 @app.route('/contact', methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
+<<<<<<< Updated upstream
         msg = MIMEMultipart()
         msg['From'] = os.environ["from"]
         msg['To'] = os.environ["to"]
@@ -41,6 +50,11 @@ def contact():
 
         mailserver.sendmail(os.environ["from"], os.environ["to"], msg.as_string())
         mailserver.quit()
+=======
+        send_grid = SendEmail(request.form.get("from_name"), request.form.get("from_email"), request.form.get("message_text"))
+        send_grid.email()
+        flash("Email Sent")
+>>>>>>> Stashed changes
         return render_template("contact.html")
 
     return render_template("contact.html")
