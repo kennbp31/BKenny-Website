@@ -1,11 +1,10 @@
 import os
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+from email_class import SendEmail
+
 
 app = Flask(__name__)
-app.secret_key = 'KHbkjbjKBu7g87g*&gbuyb*&g97iUB'
+app.secret_key = os.environ["secret_key"]
 
 
 @app.route('/')
@@ -26,20 +25,10 @@ def story():
 @app.route('/contact', methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
-        msg = MIMEMultipart()
-        msg['From'] = os.environ["from"]
-        msg['To'] = os.environ["to"]
-        msg['Subject'] = 'Portfolio Inquiry'
-        message = ("Name: " + request.form.get("from_name") + " , Email: " + request.form.get("from_email")
-                   + " , Message: " + request.form.get("message_html"))
-        msg.attach(MIMEText(message))
-
-        mailserver = smtplib.SMTP(os.environ["smtp"], os.environ["port"])
-
-        mailserver.login(os.environ["username"], os.environ["pass"])
-
-        mailserver.sendmail(os.environ["from"], os.environ["to"], msg.as_string())
-        mailserver.quit()
+        send_grid = SendEmail(request.form.get("from_name"), request.form.get("from_email"), request.form.get("message_text"))
+        send_grid.email()
+        
+        # Display confirmation message to user.
         flash("Email Sent")
         return render_template("contact.html")
 
