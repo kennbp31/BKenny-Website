@@ -109,7 +109,7 @@ img
 .botLeft{
     width: 10px;
     position:fixed;
-    bottom:0;
+    bottom:20px;
     left:0;
 }
 
