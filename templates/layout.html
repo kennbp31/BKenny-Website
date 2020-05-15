@@ -42,10 +42,18 @@
             </ul>
           </div>
         </nav>
+        {% if get_flashed_messages() %}
+            <header>
+                <div class="alert alert-primary border text-center" role="alert">
+                    {{ get_flashed_messages() | join(" ") }}
+                </div>
+            </header>
+        {% endif %}
         <main>
             {% block main %}{% endblock %}
         </main>
         <footer>
+            <div class="parent">
                 <div class=botLeft>
                    <a href="https://www.linkedin.com/in/brendan-kenny-46106013b/" target="_blank">
                         <img src="/static/Images/linkedin-icon_24x24.png" alt="twitter" >
@@ -59,6 +67,7 @@
                         <img src="/static/Images/gmail.png" alt="Email"  width=22px>
                     </a>
                 </div>
+            </div>
                 {% block footer %}{% endblock %}
         </footer>
     </body>
