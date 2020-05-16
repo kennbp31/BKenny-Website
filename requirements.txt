@@ -3,3 +3,4 @@ Jinja2
 gunicorn
 python-dotenv~=0.13.0
 boto
+mock~=4.0.2

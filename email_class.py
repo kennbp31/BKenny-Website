@@ -20,7 +20,7 @@ class SendEmail:
         self.smtp_username = smtp_username
         self.smtp_password = smtp_password
 
-    def email(self):
+    def build_email(self):
         # Build the simple text message being sent
         msg = MIMEMultipart()
         msg['From'] = self.var_from_email
@@ -29,11 +29,30 @@ class SendEmail:
         message = ("Name: " + self.from_name + " , Email: " + self.from_email
                    + " , Message: " + self.message_text)
         msg.attach(MIMEText(message))
+        return msg
 
-        # Connect to the mail server
-        mailserver = smtplib.SMTP(self.smtp_address, self.port)
-        mailserver.login(self.smtp_username, self.smtp_password)
+    def send_email(self):
+        msg = self.build_email()
 
-        # Send the email
-        mailserver.sendmail(self.var_from_email, self.var_to_email, msg.as_string())
-        mailserver.quit()
+        try:
+            # Connect to the mail server
+            mailserver = smtplib.SMTP(self.smtp_address, self.port)
+            mailserver.login(self.smtp_username, self.smtp_password)
+            # Send the email
+            mailserver.sendmail(self.var_from_email, self.var_to_email, msg.as_string())
+            mailserver.quit()
+            return 'success'
+        except OSError:
+            pass
+        return 'fail'
+
+
+
+
+
+
+            #giving a gross error when failing on the site.
+        #except smtplib.SMTPException:
+            #return 'fail'
+
+

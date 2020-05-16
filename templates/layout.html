@@ -42,13 +42,13 @@
             </ul>
           </div>
         </nav>
-        {% if get_flashed_messages() %}
+        {% for message in get_flashed_messages(with_categories=True) %}
             <header>
-                <div class="alert alert-primary border text-center" role="alert">
+                <div class="alert alert-{{ message[0] }} border text-center" role="alert">
                     {{ get_flashed_messages() | join(" ") }}
                 </div>
             </header>
-        {% endif %}
+        {% endfor %}
         <main>
             {% block main %}{% endblock %}
         </main>
