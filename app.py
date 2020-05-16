@@ -1,8 +1,11 @@
 import os
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
-from email_class import SendEmail
+from email_class import SendEmail, BuildEmail
 
 app = Flask(__name__)
+send_email = SendEmail()
+build_email = BuildEmail()
+
 app.secret_key = os.environ["secret_key"]
 
 
@@ -24,9 +27,16 @@ def story():
 @app.route('/contact', methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
-        send_grid = SendEmail(request.form.get("fname"), request.form.get("email"), request.form.get("message_text"))
+        # Include user input in the message text
+        build_email.from_name = request.form.get("fname")
+        build_email.from_email = request.form.get("email")
+        build_email.message_text = request.form.get("message_text")
 
-        if send_grid.send_email() == 'success':
+        # Include the message in the send_mail function
+        send_email.message = str(build_email.build_email())
+
+        # Attempt to send the email
+        if send_email.send_email() == 'success':
             # Display confirmation message to user.
             flash("Email Sent", category='primary')
 

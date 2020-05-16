@@ -4,55 +4,45 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 
-class SendEmail:
-    """Email class, use environmental variables to fill in the email setup, may manually feed setup in as well"""
-    def __init__(self, from_name="Test", from_email="Test@test.com", message_text="This is a test!", var_to_email=os.environ["to"]
-                 , var_from_email=os.environ["from"], subject="Portfolio Inquiry", smtp_address=os.environ["smtp"]
-                 , port=os.environ["port"], smtp_username=os.environ["username"], smtp_password=os.environ["pass"]):
+class BuildEmail:
+    """Email class, use environmental variables to create the message being sent, may manually feed setup in as well"""
+    def __init__(self, from_name="Test", from_email="Test@test.com", message_text="This is a test!", msg=MIMEMultipart()):
         self.from_name = from_name
         self.from_email = from_email
         self.message_text = message_text
-        self.var_to_email = var_to_email
-        self.var_from_email = var_from_email
-        self.subject = subject
-        self.smtp_address = smtp_address
-        self.port = port
-        self.smtp_username = smtp_username
-        self.smtp_password = smtp_password
+        self.msg = msg
+        msg['From'] = os.environ["from"]
+        msg['To'] = os.environ["to"]
+        msg['Subject'] = "Portfolio Inquiry"
 
     def build_email(self):
-        # Build the simple text message being sent
-        msg = MIMEMultipart()
-        msg['From'] = self.var_from_email
-        msg['To'] = self.var_to_email
-        msg['Subject'] = self.subject
+        # Build the simple text message being sent using user input
         message = ("Name: " + self.from_name + " , Email: " + self.from_email
                    + " , Message: " + self.message_text)
-        msg.attach(MIMEText(message))
-        return msg
+        self.msg.attach(MIMEText(message))
+        return self.msg
+
+
+class SendEmail:
+    """Class used to send an email, will require a preformatted message, as built in the prior class"""
+    def __init__(self, smtp_username=os.environ["username"], smtp_password=os.environ["pass"], var_to_email=os.environ["to"], var_from_email=os.environ["from"]
+                 , message='No message provided', mail_server=smtplib.SMTP(os.environ["smtp"], os.environ["port"])):
+        self.smtp_username = smtp_username
+        self.smtp_password = smtp_password
+        self.var_to_email = var_to_email
+        self.var_from_email = var_from_email
+        self.message = message
+        self.mail_server = mail_server
 
     def send_email(self):
-        msg = self.build_email()
-
         try:
             # Connect to the mail server
-            mailserver = smtplib.SMTP(self.smtp_address, self.port)
-            mailserver.login(self.smtp_username, self.smtp_password)
+            self.mail_server.login(self.smtp_username, self.smtp_password)
             # Send the email
-            mailserver.sendmail(self.var_from_email, self.var_to_email, msg.as_string())
-            mailserver.quit()
+            self.mail_server.sendmail(self.var_from_email, self.var_to_email, self.message)
+            self.mail_server.quit()
             return 'success'
-        except OSError:
-            pass
-        return 'fail'
-
-
-
-
-
-
-            #giving a gross error when failing on the site.
-        #except smtplib.SMTPException:
-            #return 'fail'
+        except smtplib.SMTPException:
+            return 'fail'
 
 

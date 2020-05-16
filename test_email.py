@@ -44,7 +44,6 @@ class TestEmail(unittest.TestCase):
     def test_send_fail(self):
         with patch("smtplib.SMTP") as mock_smtp:
             mailer = SendEmail()
-            message = SendEmail.build_email
         instance = mock_smtp.return_value
         instance.mock_smtp.side_effect = OSError
 
