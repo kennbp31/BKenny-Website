@@ -36,7 +36,7 @@ class SendEmail:
 
         try:
             # Connect to the mail server
-            mailserver = smtplib.SMTP("none", self.port)
+            mailserver = smtplib.SMTP(self.smtp_address, self.port)
             mailserver.login(self.smtp_username, self.smtp_password)
             # Send the email
             mailserver.sendmail(self.var_from_email, self.var_to_email, msg.as_string())
