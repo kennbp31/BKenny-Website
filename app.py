@@ -24,10 +24,15 @@ def story():
 @app.route('/contact', methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
+        send_grid = SendEmail(request.form.get("fname"), request.form.get("email"), request.form.get("message_text"))
 
-        send_grid = SendEmail(request.form.get("from_name"), request.form.get("from_email"), request.form.get("message_text"))
-        send_grid.email()
-        flash("Email Sent")
+        if send_grid.send_email() == 'success':
+            # Display confirmation message to user.
+            flash("Email Sent", category='primary')
+
+        else:
+            # Display message failed error to the user
+            flash('Email Failed', category='danger')
         return render_template("contact.html")
 
     return render_template("contact.html")
