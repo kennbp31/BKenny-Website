@@ -2,56 +2,49 @@ import os
 import smtplib
 import unittest
 from mock import patch, call, Mock
-from email_class import SendEmail as SendEmail
+from email_class import SendEmail as SendEmail, BuildEmail as BuildEmail
 
 
 class TestEmail(unittest.TestCase):
-
+    """Series of unit tests ensuring that emails are built and sent correctly."""
     # Ensure that environmental variables are defined and loading correctly
-    def test_os_variables(self):
-        messages = SendEmail()
-        messages.from_name = 'Brendan'
-        messages.from_email = 'test@test.com'
-        messages.message_text = 'This is a test'
-        self.assertIn('Portfolio Inquiry', str(messages.build_email()))
-        self.assertIn('kennbp31@gmail.com', str(messages.build_email()))
+    def test_osvariables(self):
+        build_e = BuildEmail()
+        self.assertIn('Portfolio Inquiry', str(build_e.build_email()))
+        self.assertIn('kennbp31@gmail.com', str(build_e.build_email()))
 
-    # Ensure that the message contains concatenated text correctly
-    def test_msg(self):
-        messages = SendEmail()
-        messages.from_name = 'Brendan'
-        messages.from_email = 'test@test.com'
-        messages.message_text = 'This is a test'
-        self.assertIn('Name: Brendan , Email: test@test.com , Message: This is a test', str(messages.build_email()))
+    def test_message_concatentaion(self):
+        name = "Brendan Test"
+        email = "Test@Email.com"
+        message = "Test Messages are great!"
+        build_e = BuildEmail(name,email,message)
+        self.assertIn( 'Name: Brendan Test , Email: Test@Email.com , Message: Test Messages are great!', str(build_e.build_email()))
 
-    # check that response is true when email is sent correctly
+    # check that function returns success when there is not an SMTP Exception
     def test_send_success(self):
-        with patch("smtplib.SMTP") as mock_smtp:
-            message = SendEmail()
-            result = message.send_email()
-        instance = mock_smtp.return_value
-
-        # Ensure that sendmail is actually called
-        self.assertTrue(instance.sendmail.called)
-
-        # Checks the mock has been called one time
-        self.assertEqual(instance.sendmail.call_count, 1)
-
-        # Ensure that the result passed back to the app is true
-        self.assertEqual('success', result)
-
-    # Check that response is fail when email is not sent correctly
-    def test_send_fail(self):
-        with patch("smtplib.SMTP") as mock_smtp:
+        with patch("smtplib.SMTP.sendmail") as mock_smtp, patch("smtplib.SMTP.login") as mock_login:
             mailer = SendEmail()
-        instance = mock_smtp.return_value
-        instance.mock_smtp.side_effect = OSError
+            result = mailer.send_email()
+            # Ensure that our smtplib was properly mocked
+            self.assertTrue(mock_smtp.called)
+            self.assertTrue(mock_login.called)
+            self.assertEqual(mock_smtp.call_count, 1)
+            # Ensure that success is returned
+            self.assertEqual("success", result)
+            # Ensure the OS variables are loading and used as expected
+            self.assertEqual(os.environ["from"], mailer.var_from_email)
+            mock_login.assert_called_with(os.environ["username"], os.environ["pass"])
 
-        # Ensure that sendmail was not called
-        self.assertFalse(instance.sendmail.called)
-
-        # Checks that sendmail call count = 0
-        self.assertEqual(instance.sendmail.call_count, 0)
+    # check that function returns fail when there is an SMTP Exception
+    def test_send_fail(self):
+        with patch("smtplib.SMTP.login") as mock_login:
+            mailer = SendEmail()
+            mock_login.SMTPException = True
+            result = mailer.send_email()
+            # Ensure that our smtplib was properly mocked
+            self.assertTrue(mock_login.called)
+            # Ensure that exceptions trigger a failed response
+            self.assertEqual("fail", result)
 
 
 if __name__ == '__main__':
