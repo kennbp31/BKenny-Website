@@ -2,57 +2,46 @@ import os
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from enum import Enum
 
 
-class SendEmail:
-    """Email class, use environmental variables to fill in the email setup, may manually feed setup in as well"""
-    def __init__(self, from_name="Test", from_email="Test@test.com", message_text="This is a test!", var_to_email=os.environ["to"]
-                 , var_from_email=os.environ["from"], subject="Portfolio Inquiry", smtp_address=os.environ["smtp"]
-                 , port=os.environ["port"], smtp_username=os.environ["username"], smtp_password=os.environ["pass"]):
-        self.from_name = from_name
-        self.from_email = from_email
-        self.message_text = message_text
-        self.var_to_email = var_to_email
-        self.var_from_email = var_from_email
-        self.subject = subject
-        self.smtp_address = smtp_address
-        self.port = port
+class EmailBuilder:
+    """Email class, use environmental variables to create the message being sent, may manually feed setup in as well"""
+
+    def __init__(self, email_msg=MIMEMultipart()):
+        self.email_msg = email_msg
+        self.email_msg['From'] = os.environ["from"]
+        self.email_msg['To'] = os.environ["to"]
+        self.email_msg['Subject'] = "Portfolio Inquiry"
+
+    def build_email(self, from_name, from_email, message_text):
+        # Build the simple text message being sent using user input
+        message = ("Name: " + from_name + " , Email: " + from_email
+                   + " , Message: " + message_text)
+        self.email_msg.attach(MIMEText(message))
+
+
+class EmailSender:
+    """Class used to send an email, will require a preformatted message, as built in the prior class"""
+
+    def __init__(self, smtp_username=os.environ["username"], smtp_password=os.environ["pass"]
+                 , mail_server=smtplib.SMTP(os.environ["smtp"], os.environ["port"])):
         self.smtp_username = smtp_username
         self.smtp_password = smtp_password
+        self.mail_server = mail_server
 
-    def build_email(self):
-        # Build the simple text message being sent
-        msg = MIMEMultipart()
-        msg['From'] = self.var_from_email
-        msg['To'] = self.var_to_email
-        msg['Subject'] = self.subject
-        message = ("Name: " + self.from_name + " , Email: " + self.from_email
-                   + " , Message: " + self.message_text)
-        msg.attach(MIMEText(message))
-        return msg
-
-    def send_email(self):
-        msg = self.build_email()
-
+    def send_email(self, built_email):
         try:
             # Connect to the mail server
-            mailserver = smtplib.SMTP(self.smtp_address, self.port)
-            mailserver.login(self.smtp_username, self.smtp_password)
+            self.mail_server.login(self.smtp_username, self.smtp_password)
             # Send the email
-            mailserver.sendmail(self.var_from_email, self.var_to_email, msg.as_string())
-            mailserver.quit()
-            return 'success'
-        except OSError:
-            pass
-        return 'fail'
+            self.mail_server.sendmail(built_email["From"], built_email["To"], str(built_email))
+            self.mail_server.quit()
+            return Result.success
+        except smtplib.SMTPException:
+            return Result.fail
 
 
-
-
-
-
-            #giving a gross error when failing on the site.
-        #except smtplib.SMTPException:
-            #return 'fail'
-
-
+class Result(Enum):
+    success = 2
+    fail = 1
