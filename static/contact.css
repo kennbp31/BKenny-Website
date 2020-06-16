@@ -61,3 +61,17 @@ h2{
       padding-left: 5%;
       padding-top:1%;
 }
+
+@media screen and (max-width: 1000px) {
+#emailDiv{
+    position:absolute;
+    left: 06%;
+    right: 5vw;
+    z-index:1;
+    font-family: 'Tw Cen MT', sans-serif;
+    color: #4E7294 !important;
+    font-weight: 500;
+    line-height: 1.25;
+    font-size:calc(12px + .5vw);
+}
+}
