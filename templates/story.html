@@ -5,92 +5,76 @@
 {% endblock %}
 
 {% block main %}
-
+<link href="../static/story.css" rel="stylesheet">
         <div style="position: relative;">
-                <h1 style="text-align: center">About</h1>
-            <div class="rightCenter">
-                <p class="blackBackground rounded">
-                 &emsp; <big>Hello</big>, and thank you for taking the time to review my portfolio! Below is a <i>'quick'</i> overview of my professional journey up until now!
+            <div class="splitleft">
+                <h1 id="aboutHeader" style="text-align: center">About Brendan</h1>
+                <br>
+                <img id="bMask" src="/static/Images/Brendan_Mask.jpg" alt="Brendan Kenny Photo">
+                <br><br>
+                <h3>Interests</h3>
+                <p class="aboutMePara">History <br> Computers and Software Development <br> Adaptive technologies <br> Futurism</p>
+                <br><br>
+                <h3>Hobbies</h3>
+                <p class="aboutMePara">Hiking and Outdoor Sports <br> Board and Video Games<br> Roadtrips/Exploration <br></p>
+            </div>
+            <div class="splitright">
+            <div>
+                <p class="aboutMePara"><span id="hello">Hello, </span>and thank you for taking the time to review my portfolio! </p>
+                <div id="lineBreak"></div>
+                <p class="aboutMePara">
+                 Originally from Syracuse, NY, I worked for <span class="bluePara">Syrasoft, </span>a software company providing financial and management software solutions to self-storage companies across the country.
+                    I acted as a Software Support Analyst and Large Account Manager gaining a firm understanding of software development
+                    workflows and translating client’s business needs into deliverable software. Daily responsibilities included
+                    troubleshooting client issues, providing data repairs using SQL, coding custom installers for large accounts
+                    specific business rules, training users of the software, and migrating clients from existing software to our own.
 
-                 <br><br>&emsp; Originally from <b>Syracuse, NY,</b> I worked for a software company providing financial and management software solutions to self-storage companies
-                 across the country. In that role I acted as a Software Support Analyst and Large Account Manager gaining a firm understanding of software development workflows, team dynamics, and how to translate client’s business needs
-                 into deliverable software. A few of my daily responsibilities included troubleshooting client issues, providing data repairs using SQL,
-                 coding custom installers for large accounts specific business rules, training users of the software, and migrating clients from existing software to our own.
+                 <br><br>&emsp; In 2015 I moved to North Carolina’s Research Triangle to work for  <span class="bluePara">Farragut Systems, </span>
+                     a leading producer of local government software solutions. Although my title stayed the same,
+                    my expertise and abilities grew exponentially. In addition to my existing skills I was responsible for
+                    coding complex stored procedures, performing routine maintenance and troubleshooting on a large SQL
+                    Server Databases, troubleshooting issues for clients using our cloud-based SaaS, leading large
+                    conferences, managing documentation and writing complex guides for business processes, and more.
 
-                 <br><br>&emsp; I moved to the <b>Research Triangle</b> Area of North Carolina in 2015 to work at Farragut Systems, a leading producer of local government software solutions.
-                 Although the title was the same, my expertise and abilities grew exponentially with the new challenges.
-                 In addition to my existing responsibilities at Syrasoft, I was now coding long and complex stored procedures, performing routine maintenance and troubleshooting on large SQL Server Databases,
-                 troubleshooting issues for clients using our cloud-based SaaS, leading large conferences, managing documentation and writing complex guides for lengthy business processes, and much more.
+                 <br><br>&emsp; My experience leading conferences inspired me to seek a new challenge. I had a desire to influence my community and work
+                    as a High School Educator, introducing students to one of my passions, History. Teaching became my most challenging
+                    accomplishment!  Convincing teenagers the value of education and understanding the countries history proved far
+                    differnt from educating paid employees on more efficent business practices.  Countless hours spent up late lesson
+                    planning , providing meaningful feedback, and strategizing managment eventually paid off. Students achieved fantastic
+                    results on state assessments, I was awarded with the "going green" award for 2 years, was recognized as beginner
+                    teacher of the month twice, and now act as the  <span class="bluePara">Team Lead of the American History department.
+                </span>
 
-                 <br><br>&emsp; Although happy with my my position at Farragut Systems, in 2017 I sought a new challenge. I desired to give back to the community and work as a High School Educator, introducing students to one of my passions, History.
-                 Teaching has been the single most challenging thing I have ever done! It is one thing to lead a lecture at a professional conference evert, but something totally different to
-                 convince teenagers the value of education, and excitement that can be learned from History. However, I am not one to shy away from a challenge.
-                 Countless hours spent late at night planning lessons, grading, and strategizing how to manage the classroom eventually paid off.
-                 My students achieved fantastic results on state assessments, I was awarded with the "going green" award for 2 years in a row, was recognized as beginner teacher of the month twice, and
-                 now act as the <b>Team Lead</b> of the American History department at my school.
+                 <br><br>&emsp; I wish to transition back to the software industry. My wife and I brought our first child into the world,
+                    and with that change I decided to focus my life on a passion that allows me to spend quality time with my family.
+                    Although teaching is a fantastic profession, it requires a huge amount of mental energy to excel. I know that I
+                    could be a decent teacher, and still have the energy at the end of the day for my family, but I am not one that
+                    is ok being "decent" at anything. I strive for excellence in my life.I have spent the better part of a year teaching
+                    myself to program. I have used languages ranging from <span class="bluePara">C, C#, Visual Basic, JavaScript, Python,
+                    Flask, HTML, and CSS. </span> As I seek to return to the software industry, it is withnew knowledge and
+                    experience coding in a variety of languages. I possess the skills to be a great educator,
+                    empathetic professional support, an experienced troubleshooter, and possess an understanding of
+                    development languages and practices.
 
-                 <br><br>&emsp; Now, three years after beginning my career as a teacher, I am looking to transition back to the software industry.
-                 Me and my wife brought our first child into the world, and with that change I have decided to focus my life on a passion that allows me
-                 to spend more quality time with my family. Although teaching is a fantastic profession, it requires a huge amount of mental energy to excel.
-                 I know that I could be a decent teacher, and still have the energy at the end of the day for my family, but I am not one that is ok
-                 doing something "decent". I strive for excellence in my life.
 
-                 <br><br>&emsp; I have spent the better part of a year teaching myself to program. I have used languages ranging from <b>C, C#, Visual Basic, JavaScript, Python, Flask, HTML, and CSS.</b>
-                 So, although I am seeking a return to the software industry, it is with<b>new knowledge and experience coding in a variety of languages.</b>
-                 I possess the skills to be a great educator, empathetic professional support, an experienced troubleshooter that works well under pressure, and now possess an understanding of
-                 development languages and practices.
+                 <br><br>&emsp; I hope to work with you all one day in the future, and if this website and my story appeal
+                    to you, let me know! I love learning and sharing life experiences with new people!
 
-                 <br><br>&emsp; I hope to work with you all one day in the future, and if this website and my story appeal to you, let me know!
-                 I love learning and sharing life experiences with new people!
                 </p>
             </div>
-
-        </div>
+            <div id="lineBreakLong"></div>
+        <div>
+            <div style="margin-left: 1.5vw;">
+                <img class="photos" onload="imgIntervalTimer()"  class="rounded" src="/static/Photos/pic1.jpg" alt="Brendan Photos" id="photo1" >
+                <img class="photos"  onload="imgIntervalTimer()"  class="rounded" src="/static/Photos/pic5.jpg" alt="Brendan Photos" id="photo2" >
+                <img class="photos" onload="imgIntervalTimer()"  class="rounded" src="/static/Photos/pic7.jpg" alt="Brendan Photos" id="photo3" >
+                <img class="photos" onload="imgIntervalTimer()"  class="rounded" src="/static/Photos/pic9.jpg" alt="Brendan Photos" id="photo3" >
+            </div>
 {% endblock %}
 
 {%  block footer %}
-        <div  id="photos">
-            <img onload="imgIntervalTimer()" class="rounded" src="/static/Photos/pic1.jpg" alt="Brendan Photos" style="width: 100%; height: 100%; padding-left:5%;">
-        </div>
+
 {%  endblock %}
 
 {% block javascript %}
-    <script type="text/javascript">
-            //script used to post photos
-            //sloppy, hardcoding number of images in dir
-            var numOfImages = 14;
-
-            //create an empyt array to store image names in
-            var nextImage = new Array(numOfImages);
-
-            //iterate through array and add image names
-            for (let i = 0; i < numOfImages; i++){
-                nextImage[i] = ("pic"+ (i + 1) +".jpg");
-            }
-
-            //variable used to track which image we are on.
-            var i = 1;
-
-            //Function to transition to next image
-            function displayNextImage(){
-                    //variable that stores image that is about to be displayed
-                    var x = nextImage[i];
-
-                    //inject HTML with newest image
-                    document.querySelector('#photos').innerHTML = '<img class="rounded" src="/static/Photos/' + x + '" alt="Brendan Photos" style="width: 100%; height: 100%; padding-left:5%;">'
-
-                    // advance counter to show next image
-                    if (i < numOfImages - 1){
-                        i++;
-                    }
-                    else{
-                        i = 0;
-                    }
-                }
-
-            //Interval timer for the transition
-            function imgIntervalTimer(){
-                    setInterval(displayNextImage, 6000);
-                }
-    </script>
 {% endblock %}
