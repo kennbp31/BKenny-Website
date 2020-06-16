@@ -1,3 +1,22 @@
+@font-face {
+  font-family: "Tw Cen MT";
+  src: url("9b62dc86f936227b3f7b367bd0b6c05e.eot"); /* IE9*/
+  src: url("9b62dc86f936227b3f7b367bd0b6c05e.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("9b62dc86f936227b3f7b367bd0b6c05e.woff2") format("woff2"), /* chrome、firefox */
+  url("9b62dc86f936227b3f7b367bd0b6c05e.woff") format("woff"), /* chrome、firefox */
+  url("9b62dc86f936227b3f7b367bd0b6c05e.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url("9b62dc86f936227b3f7b367bd0b6c05e.svg#Tw Cen MT") format("svg"); /* iOS 4.1- */
+}
+
+@font-face {font-family: "Poor Richard";
+  src: url("1333b13c4f911f3160f1c2822573f70c.eot"); /* IE9*/
+  src: url("1333b13c4f911f3160f1c2822573f70c.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("1333b13c4f911f3160f1c2822573f70c.woff2") format("woff2"), /* chrome、firefox */
+  url("1333b13c4f911f3160f1c2822573f70c.woff") format("woff"), /* chrome、firefox */
+  url("1333b13c4f911f3160f1c2822573f70c.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url("1333b13c4f911f3160f1c2822573f70c.svg#Poor Richard") format("svg"); /* iOS 4.1- */
+}
+
 .nav-link{
     font-family: 'Tw Cen MT', sans-serif;
     color: #7C81A9 !important;
