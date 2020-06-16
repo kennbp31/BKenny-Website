@@ -5,25 +5,29 @@
 {% endblock %}
 
 {% block main %}
-     <div style="position: relative;">
-         <div class="standardCenter">
-             <h1>Contact</h1>
+<link href="../static/contact.css" rel="stylesheet">
+        <img id="mtns" src="/static/Images/mtnlong.jpg" alt="Mountains">
+        <div id="contactMain">
+             <h1>Contact Brendan Kenny</h1>
              <br>
-             <p2>If you have any questions, comments, or would like to reach out for any other reason you can email me or use the form on this page.</p2>
-
-            <div>
-            <form action="/contact" method="post" autocomplete="on">
-                <label>Your Name</label>
-                <input   class="email" type="text" name="fname" required/>
-                <label>Email Address</label>
-                <input   class="email" type="email" name="email" required/>
-                <label>Questions/Comments</label>
-                <textarea  id="email_text" rows="5" type="text" name="message_text" required> </textarea>
-
-                <br><br>
-                <button class="btn btn-primary" type="submit">Submit</button>
-            </form>
+            <div id="emailDiv">
+                <form action="/contact" method="post" autocomplete="on">
+                    <label>Your Name</label>
+                    <br>
+                    <input   id="name" type="text" name="fname" required/>
+                    <br>
+                     <br>
+                    <label>Email Address</label>
+                    <br>
+                    <input id="email" type="email" name="email" required/>
+                    <br>
+                     <br>
+                    <label>Questions/Comments</label>
+                    <br>
+                    <textarea  id="email_text" rows="5" type="text" name="message_text" required> </textarea>
+                    <br><br>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
             </div>
-         </div>
-     </div>
+    </div>
 {% endblock %}
